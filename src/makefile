@@ -1,6 +1,6 @@
 
 CXX = g++
-DEBUG = -g  -Wall -Wextra
+DEBUG = -g -Wall -Wextra
 
 .PHONY: all
 main: main.cpp utils.cpp library.cpp
@@ -17,4 +17,4 @@ clean:
 
 .PHONY: debug
 debug:
-	$(CXX) $(DEBUG) main.cpp utils.cpp -o main_test_version 2>errlog.txt
+	$(CXX) $(DEBUG) main.cpp utils.cpp library.cpp -o main_test_version 2>errlog.txt

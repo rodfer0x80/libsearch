@@ -1,35 +1,26 @@
-using namespace std;
+#include <string>
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include "library.h"
+#include <sstream>
 void Library::LoadBook() { // Load books.txt
     Book tmpbook;
-    string str;
-    ifstream fin("books.txt"); // Open and read books.txt
-    if(!fin) { // If can't open
-        cerr << "books.txt can't open" << endl;
-        abort(); // Exit
+    std::ifstream file("books");
+    std::string line;
+    std::vector<std::string> tokens;
+    int i = 0;
+    while(std::getline(file,line)) {
+      std::istringstream iss(line);
+      std::string token;
+      while(std::getline(iss, token, '\t')){
+        tokens.push_back(token);
+      }
+      tmpbook.SetName(tokens[i++]);
+      tmpbook.SetAuthor(tokens[i++]);
+      tmpbook.SetIsbn(tokens[i++]);
+      tmpbook.SetNumber(tokens[i++]);
+      BookArray.push_back(tmpbook);
     }
-    while (getline(fin, str)) {
-        size_t i = str.find("\t"); // Find tab spacebar
-        // Split string by tab and get information
-        tmpbook.SetName(str.substr(0, i));
-        str = str.substr(i+1);
-
-        i = str.find("\t"); // Find second spacebar
-        tmpbook.SetIsbn(str.substr(0, i));
-        str = str.substr(i+1);
-
-        i = str.find("\t");
-        tmpbook.SetAuthor(str.substr(0, i));
-        str = str.substr(i+1);
-
-        i = str.find("\t");
-        tmpbook.SetNumber(stoi(str.substr(0, i)));
-        str = str.substr(i+1);
-
-        BookArray.push_back(tmpbook); // Add to library book array
-    }
-    fin.close(); // Close books.txt
 }
 
