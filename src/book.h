@@ -1,21 +1,27 @@
-#ifndef _BOOK_H_
-#define _BOOK_H_
+#ifndef BOOK_H
+#define BOOK_H
 
-#include <string.h>
+#include <string>
+using namespace std;
 
-class Book 
-{
-    // Class to represent books in a library system
-    private:
-        std::string title;
-        std::string author;
-        int quantity;
-        double ISBN;
-    public:
-        Book(std::string title, std::string author, double ISBN, int quantity);
-        ~Book();
-        void add_book(double ISBN, int amount);
-        void remove_book(double ISBN, int amount);
+class Book {
+public:
+    // Get book related information
+    string GetName() { return name; }
+    string GetIsbn() { return isbn; }
+    string GetAuthor() { return author; }
+    int GetNumber() { return number; }
+
+    // Change book related information
+    void SetName(string new_name) { name = new_name; }
+    void SetIsbn(string new_isbn) { isbn = new_isbn; }
+    void SetAuthor(string new_author) { author = new_author; }
+    void SetNumber(int new_number) { number = new_number; }
+private:
+    string name;
+    string isbn; // ISBN number
+    string author;
+    int number; // number of copies
 };
 
 #endif

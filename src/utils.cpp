@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "macros.h"
-
+#include "utils.h"
 /*
  * Greeting shell during startup as in clear screen and print welcome text
  *
@@ -17,6 +16,7 @@ void greeting()
     printf("\n\n\n\t        ***** Open Source  *****");
     printf("\n\n\n\n\t*******************"
            "***********************\n");
-	sleep(3);
+	//sleep(3);
 	clear();
 }
+

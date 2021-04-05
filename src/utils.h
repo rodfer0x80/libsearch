@@ -1,5 +1,5 @@
-#ifndef MACROS_H
-#define MACROS_H
+#ifndef UTILS_H
+#define UTILS_H
 
 // -- Helper Functions
 // :: Clear Screen Function
