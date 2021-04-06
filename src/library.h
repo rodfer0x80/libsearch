@@ -2,13 +2,14 @@
 #define LIBRARY_H
 
 #include <vector>
+#include <string>
 #include "book.h"
-using namespace std;
 
 class Library {
 public:
     void LoadBook(); // Load books.txt
-    vector<Book> BookArray; // Store all books in vector
+    std::vector<Book> BookArray; // Store all books in vector
+    std::vector<std::string> NameArray;
 private:
 };
 

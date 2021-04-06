@@ -2,26 +2,25 @@
 #define BOOK_H
 
 #include <string>
-using namespace std;
 
 class Book {
 public:
     // Get book related information
-    string GetName() { return name; }
-    string GetIsbn() { return isbn; }
-    string GetAuthor() { return author; }
-    string GetNumber() { return number; }
+  std::string GetName() { return name; }
+  std::string GetIsbn() { return isbn; }
+  std::string GetAuthor() { return author; }
+  std::string GetNumber() { return number; }
 
-    // Change book related information
-    void SetName(string new_name) { name = new_name; }
-    void SetIsbn(string new_isbn) { isbn = new_isbn; }
-    void SetAuthor(string new_author) { author = new_author; }
-    void SetNumber(string new_number) { number = new_number; }
+  // Change book related information
+  void SetName(std::string new_name) { name = new_name; }
+  void SetIsbn(std::string new_isbn) { isbn = new_isbn; }
+  void SetAuthor(std::string new_author) { author = new_author; }
+  void SetNumber(std::string new_number) { number = new_number; }
 private:
-    string name;
-    string isbn; // ISBN number
-    string author;
-    string number; // number of copies
+  std::string name;
+  std::string isbn; // ISBN number
+  std::string author;
+  std::string number; // number of copies
 };
 
 #endif
