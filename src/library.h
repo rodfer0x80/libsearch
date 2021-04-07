@@ -8,6 +8,8 @@
 class Library {
 public:
     void LoadBook(); // Load books.txt
+    void Search(); // search algo
+    void DumpBook(); // dump books to file
     std::vector<Book> BookArray; // Store all books in vector
     std::vector<std::string> NameArray;
 private:
