@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "book.h"
 #include "library.h"
 #include "utils.h"
@@ -15,6 +16,7 @@ void menu() { // Menu interface
     int i;
     int flag = 0;
     std::string name;
+    std::string bookname;
     //std::string tmp;
     int size = lib.BookArray.size();
     while (1){
@@ -30,16 +32,13 @@ void menu() { // Menu interface
         std::cin.ignore(1);
         std::getline(std::cin, name);
         for (i = 0; i < size; i++){
-          if (lib.BookArray[i].GetName() == name){
-            flag = 1;
+          transform(name.begin(), name.end(), name.begin(), ::tolower);
+          bookname = lib.BookArray[i].GetName();
+          transform(bookname.begin(), bookname.end(), bookname.begin(), ::tolower);
+          if (bookname == name){
+            std::cout << "\nTitle: " << lib.BookArray[i].GetName() << "\nAuthor: " <<  lib.BookArray[i].GetAuthor() << "\nISBN: " << lib.BookArray[i].GetIsbn() << "\nQuantity: " << lib.BookArray[i].GetNumber() << "\n";
           }
         }
-        if (flag == 1) {
-          std::cout << "Found!\n";
-        }
-        flag = 0;
-        std::cout << "Name of the book: " << name << std::endl;
-        //std::cout << lib.BookArray[243].GetName();
       } else if ( c == '2' ){
         printf("Loading new books...\n");
       } else {
