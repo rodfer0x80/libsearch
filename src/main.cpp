@@ -24,6 +24,7 @@ void menu() { // Menu interface
         lib.Search();
       } else if ( c == '2' ){
         printf("Loading new books...\n");
+        lib.DumpBook();
       } else {
         printf("Command not found\n");
       }
