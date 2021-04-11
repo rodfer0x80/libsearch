@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <limits>
 #include "book.h"
 #include "library.h"
 
@@ -46,25 +46,26 @@ void Menu() {
       std::cout << ">> ";
       std::cin >> c;
       if ( c == '0'){
-        printf("[INFO] Saving changes...\n");
-        lib.Dump();
+        printf("[EXE] Saving changes...\n");
+        lib.Backup();
         std::remove("books");
         std::rename("dump", "books");
-        printf("[INFO] Gracefully quitting...\n");
+        printf("[EXE] Gracefully quitting...\n");
         exit(0);
       } else if ( c == '1' ){
-        printf("[INFO] Searching library...\n");
+        printf("[EXE] Searching library...\n");
         lib.Probe();
       } else if ( c == '2' ){
-        printf("[INFO] Ready to add books...\n");
+        printf("[EXE] Ready to add books...\n");
         lib.Reckon();
       } else if ( c == '3' ){
-        printf("[INFO] Ready to remove books...\n");
+        printf("[EXE] Ready to remove books...\n");
         lib.Abolish();
       } else if ( c == '4' ){
-        printf("[INFO] Creating dump file...\n");
-        lib.Dump();
+        printf("[EXE] Creating backup file...\n");
+        lib.Backup();
       } else {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         printf("[ERROR] Command not found\n");
       }
     }

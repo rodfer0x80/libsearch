@@ -31,20 +31,19 @@ void Library::Load() {
 }
 
 // Parse and load data from BookArray to 'dump' file
-void Library::Dump() {
+void Library::Backup() {
   int size = BookArray.size();
   int i;
-  //std::string name;
-  std::string filename("dump");
+  std::string filename("backup");
   std::fstream file_out;
   file_out.open(filename, std::ios_base::out);
     if (!file_out.is_open()) {
-      std::cout << "[ERROR] Failed to open dump file " << filename << '\n';
+      std::cout << "[ERROR] Failed to create backup file " << filename << '\n';
     } else {
         for (i = 0; i < size; i++){
           file_out << BookArray[i].GetName() << '\t' << BookArray[i].GetAuthor() << '\t' << BookArray[i].GetIsbn() << '\t' << BookArray[i].GetNumber() << '\t' << '\n';
         }
-        std::cout << "[SUCESS] Dump successfully saved!" << std::endl;
+        std::cout << "[INFO] Backup was successfully saved" << std::endl;
     }
 }
 
@@ -57,17 +56,17 @@ void Library::Probe() {
   int i;
   int flag = 0;
   std::string bookname;
-  std::string name;
-  std::cout << "Enter book title: " << std::flush;
+  std::string title;
+  std::cout << "Enter book title >>> ";
   std::cin.ignore(1);
-  std::getline(std::cin, name);
+  std::getline(std::cin, title);
   for (i = 0; i < size; i++){
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    transform(title.begin(), title.end(), title.begin(), ::tolower);
     bookname = BookArray[i].GetName();
     transform(bookname.begin(), bookname.end(), bookname.begin(), ::tolower);
-    if (bookname == name){
+    if (bookname == title){
       flag = 1;
-      std::cout << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
+      std::cout << "\nID: " << i << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
         <<  BookArray[i].GetAuthor() << "\nISBN: " << BookArray[i].GetIsbn()
         << "\nQuantity: " << BookArray[i].GetNumber() << "\n";
     }
@@ -75,7 +74,6 @@ void Library::Probe() {
   if (flag == 0) {
     std::cout << "[ERROR] Book title not found\n";
   }
-  flag = 0;
 }
 
 // Search book by title
@@ -87,26 +85,29 @@ void Library::Probe() {
 // Return book data if match was found
 void Library::Reckon() {
   int size = BookArray.size();
-  int i;
-  int amount;
-  std::string bookname;
-  std::string name;
-  std::cout << "Enter book title: " << std::flush;
+  int i, amount;
+  int flag = 0;
+  std::string title, bookname;
+  std::cout << "Enter book title >>> ";
   std::cin.ignore(1);
-  std::getline(std::cin, name);
+  std::getline(std::cin, title);
   for (i = 0; i < size; i++){
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    transform(title.begin(), title.end(), title.begin(), ::tolower);
     bookname = BookArray[i].GetName();
     transform(bookname.begin(), bookname.end(), bookname.begin(), ::tolower);
-    if (bookname == name){
-      std::cout << "Enter amount of books to increment: ";
-      std::cin >> amount;
-      BookArray[i].Reckon(amount);
-      std::cout << "[INFO] Operation successfull!" << std::endl;
-      std::cout << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
+    if (bookname == title){
+      flag = 1;
+      std::cout << "\nID: " << i << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
         <<  BookArray[i].GetAuthor() << "\nISBN: " << BookArray[i].GetIsbn()
         << "\nQuantity: " << BookArray[i].GetNumber() << "\n";
+      std::cout << "Enter amount of books to increment >>> ";
+      std::cin >> amount;
+      BookArray[i].Reckon(amount);
+      std::cout << "[INFO] Operation successfull" << std::endl;
     }
+  }
+  if (flag == 0) {
+    std::cout << "[ERROR] Book title not found\n";
   }
 }
 
@@ -119,25 +120,37 @@ void Library::Reckon() {
 // Return book data if match was found
 void Library::Abolish() {
   int size = BookArray.size();
-  int i;
-  int amount;
-  std::string bookname;
-  std::string name;
-  std::cout << "Enter book title: " << std::flush;
+  int i, ii, amount;
+  int flag = 0;
+  Book tmp;
+  std::string title, bookname;
+  std::cout << "Enter book title >>> ";
   std::cin.ignore(1);
-  std::getline(std::cin, name);
+  std::getline(std::cin, title);
   for (i = 0; i < size; i++){
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    transform(title.begin(), title.end(), title.begin(), ::tolower);
     bookname = BookArray[i].GetName();
     transform(bookname.begin(), bookname.end(), bookname.begin(), ::tolower);
-    if (bookname == name){
-      std::cout << "Enter amount of books to reduce: ";
-      std::cin >> amount;
-      BookArray[i].Abolish(amount);
-      std::cout << "[INFO] Operation successfull!" << std::endl;
-      std::cout << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
+    if (bookname == title){
+      flag = 1;
+      std::cout << "\nID: " << i << "\nTitle: " << BookArray[i].GetName() << "\nAuthor: "
         <<  BookArray[i].GetAuthor() << "\nISBN: " << BookArray[i].GetIsbn()
         << "\nQuantity: " << BookArray[i].GetNumber() << "\n";
+      std::cout << "Enter amount of books to reduce >>> ";
+      std::cin >> amount;
+      BookArray[i].Abolish(amount);
+      if (std::stoi(BookArray[i].GetNumber()) == 0){
+        for (ii = i; ii < size; ii++){
+          tmp = BookArray[ii];
+          BookArray[ii] = BookArray[ii + 1];
+          BookArray[ii + 1] = tmp;
+        }
+        BookArray.pop_back();
+      }
+      std::cout << "[INFO] Operation successfull" << std::endl;
     }
+  }
+  if (flag == 0) {
+    std::cout << "[ERROR] Book title not found\n";
   }
 }
