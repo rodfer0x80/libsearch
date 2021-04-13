@@ -1,3 +1,0 @@
-1) Remove books from array
-2) Sort books
-3) Implement linled lost

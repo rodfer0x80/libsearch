@@ -3,4 +3,11 @@ https://aofa.cs.princeton.edu/10analysis/
 https://www.youtube.com/watch?v=NeOTr0u7ALk
 https://mdx.mrooms.net/pluginfile.php/2552954/mod_resource/content/0/cst2550_coursework2.pdf
 https://github.com/Armour/Book-Store-Management-System
+https://medium.com/@jcapona/dynamic-array-implementation-cpp-9deadaf1ba8e
+https://www.youtube.com/watch?v=ryRf4Jh_YC0
+Course material
+https://www.youtube.com
+https://www.odysee.com
+https://www.stackoverflow.com
+Discord
 https://mdx.mrooms.net/pluginfile.php/2496597/mod_resource/content/0/abstract_data_types.pdf

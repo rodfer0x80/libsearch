@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "book.h"
+#include "matrix.h"
 
 class Library {
 public:
@@ -12,8 +13,7 @@ public:
     void Reckon(); // search algo + add books
     void Abolish(); // search algo + remove books
     void Backup(); // dump books to file
-    std::vector<Book> BookArray; // Store all books in vector
-    std::vector<std::string> NameArray;
+    Matrix<Book> BookArray; // Store all books in vector
 private:
 };
 

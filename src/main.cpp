@@ -1,9 +1,5 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <limits>
 #include "book.h"
 #include "library.h"
 
@@ -23,13 +19,12 @@ void LoadData() {
 void Greeting()
 {
 	clear();
-    printf("\n\n\n\n\t******************"
-           "************************");
-    printf("\n\n\n\t         ***** LIBSEARCH *****       ");
-    printf("\n\n\n\t        *****   *****");
-    printf("\n\n\n\n\t*******************"
-           "***********************\n");
-	//sleep(3);
+  std::cout << "******************************\n"
+    << "******************************\n"
+    << "\n<<<<<<<<< Libsearch >>>>>>>>>>\n\n"
+    << "******************************\n"
+    << "******************************" << std::endl;
+  sleep(3);
 	clear();
 }
 
@@ -49,7 +44,7 @@ void Menu() {
         printf("[EXE] Saving changes...\n");
         lib.Backup();
         std::remove("books");
-        std::rename("dump", "books");
+        std::rename("backup", "books");
         printf("[EXE] Gracefully quitting...\n");
         exit(0);
       } else if ( c == '1' ){
