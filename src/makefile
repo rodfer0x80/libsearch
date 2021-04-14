@@ -22,4 +22,4 @@ clean:
 
 .PHONY: debug
 debug:
-	$(CXX) $(DEBUG) main.cpp utils.cpp library.cpp -o main_test_version 2>errlog.txt
+	$(CXX) $(DEBUG) main.cpp library.cpp menu.cpp -o main_test_version 2>errlog.txt
