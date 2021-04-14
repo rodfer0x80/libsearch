@@ -18,7 +18,6 @@ void Menu::Start(){
     << "\n<<<<<<<<< Libsearch >>>>>>>>>>\n\n"
     << "******************************\n"
     << "******************************" << std::endl;
-  lib.Load();
   sleep(3);
 	clear();
 }
@@ -55,7 +54,10 @@ void Menu::opx(){
 void Menu::op5(){
   lib.Backup();
   std::cout << "[EXE] Creating backup file...\n";
-
+}
+void Menu::op6(){
+  lib.Load();
+  std::cout << "[EXE] Loading data from file...\n";
 }
 
 
@@ -69,11 +71,18 @@ void Menu::Interface() {
         << "2) Add more instances of a book to library\n"
         << "3) Remove book from library\n"
         << "4) Add new book to library\n"
-        << "5) Make library backup\n";
+        << "5) Make library backup\n"
+        << "6) Load books\n";
       std::cout << ">> ";
       std::cin >> c;
-      c == '0' ? op0() : c == '1' ? op1() : c == '2' ? op2() :
-       c == '3' ? op3() : c == '4' ? op4() : c == '5' ? op5() : opx();
+      c == '0' ? op0() :
+      c == '1' ? op1() :
+      c == '2' ? op2() :
+      c == '3' ? op3() :
+      c == '4' ? op4() :
+      c == '5' ? op5() :
+      c == '6' ? op6() :
+      opx();
       }
 }
 

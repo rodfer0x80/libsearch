@@ -11,8 +11,12 @@
 // Push Book objects to BookArray
 void Library::Load(){
     Book tmpbook;
-    std::ifstream file("books");
     std::string line;
+    std::string filename;
+    std::cout << "Enter filename >>> ";
+    std::cin.ignore(1);
+    std::getline(std::cin, filename);
+    std::ifstream file(filename);
     Matrix<std::string> tokens;
     int i = 0;
     while(std::getline(file,line)) {

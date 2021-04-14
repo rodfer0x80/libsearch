@@ -14,6 +14,7 @@ private:
   void op3();
   void op4();
   void op5();
+  void op6();
   void opx();
 };
 

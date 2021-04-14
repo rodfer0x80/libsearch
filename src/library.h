@@ -1,7 +1,6 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-#include <vector>
 #include <string>
 #include "book.h"
 #include "matrix.h"
