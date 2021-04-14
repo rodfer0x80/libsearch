@@ -3,8 +3,8 @@ CXX = g++
 DEBUG = -g -Wall -Wextra
 
 .PHONY: all
-main: main.cpp library.cpp
-	$(CXX) main.cpp library.cpp -o main
+main: main.cpp library.cpp menu.cpp
+	$(CXX) main.cpp library.cpp menu.cpp -o main
 
 .PHONY: test
 test: tests.cpp library.cpp

@@ -5,31 +5,12 @@
 #include <fstream>
 #include "book.h"
 #include "library.h"
-#define clear() printf("\033[2J\033[1;1H");
 
 Library lib;
+
 // number of test to pass vs total
 int F;
 int T = 4;
-// Load data from 'books'file
-// Create Book objects
-// Create BookArray
-void LoadData() {
-    lib.Load();
-}
-
-// Shell greeting
-void Greeting()
-{
-	clear();
-  std::cout << "******************************\n"
-    << "******************************\n"
-    << "\n<<<<< Testing Framework >>>>>\n\n"
-    << "******************************\n"
-    << "******************************" << std::endl;
-  //sleep(3);
-	clear();
-}
 
 // check if opened file is empty
 bool is_empty(std::ifstream& bFile)
@@ -63,7 +44,7 @@ void test_probe(){
 void test_backup()
 {
   lib.Backup();
-  std::cout << "[TEST] 1) Backup file ";
+  std::cout << "[TEST] 1) Backup file and loading data ";
   std::ifstream bFile("backup");
 
   if (!bFile){
@@ -162,8 +143,7 @@ void Test()
 }
 
 int main(void) {
-    Greeting();
-    LoadData();
+    lib.Load();
     Test();
     return 0;
 }

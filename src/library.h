@@ -14,8 +14,9 @@ public:
     void Reckon(); // search algo + add books
     void Abolish(); // search algo + remove books
     void Backup(); // dump books to file
-    Matrix<Book> BookArray; // Store all books in vector
+    //Matrix<Book> BookArray; // Store all books in vector
 private:
+    Matrix<Book> BookArray; // Store all books in vector
 };
 
 #endif

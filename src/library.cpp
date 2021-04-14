@@ -1,16 +1,15 @@
 #include <string>
-#include <vector>
-#include <algorithm>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+
 #include "library.h"
-#include <sstream>
 
 // Load data from 'books' file
 // Parse and create Book objects
 // Create BookArray
 // Push Book objects to BookArray
-void Library::Load() {
+void Library::Load(){
     Book tmpbook;
     std::ifstream file("books");
     std::string line;
@@ -50,6 +49,8 @@ void Library::Backup() {
         file_out.close();
     }
 }
+
+// Create new instance of book with data from user and push it to BookArray
 void Library::Create(){
   Book tmpbook;
   std::string name, author, isbn, number;
