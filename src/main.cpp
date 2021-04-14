@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <unistd.h>
+#include <algorithm>
 #include "book.h"
 #include "library.h"
 
