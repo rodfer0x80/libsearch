@@ -37,33 +37,37 @@ void Menu() {
       std::cout << "\nLibSearch Library\n*******************\n"
         << "0) Quit program\n"
         << "1) Search book by title\n"
-        << "2) Add book to library\n"
+        << "2) Add more instances of a book to library\n"
         << "3) Remove book from library\n"
-        << "4) Make library backup\n";
+        << "4) Add new book to library\n"
+        << "5) Make library backup\n";
       std::cout << ">> ";
       std::cin >> c;
       if ( c == '0'){
-        printf("[EXE] Saving changes...\n");
         lib.Backup();
+        std::cout << "[EXE] Saving changes...\n";
         std::remove("books");
         std::rename("backup", "books");
-        printf("[EXE] Gracefully quitting...\n");
+        std::cout << "[EXE] Gracefully quitting...\n";
         exit(0);
       } else if ( c == '1' ){
-        printf("[EXE] Searching library...\n");
+        std::cout << "[EXE] Searching library...\n";
         lib.Probe();
       } else if ( c == '2' ){
-        printf("[EXE] Ready to add books...\n");
+        std::cout << "[EXE] Ready to add books...\n";
         lib.Reckon();
       } else if ( c == '3' ){
-        printf("[EXE] Ready to remove books...\n");
+        std::cout << "[EXE] Ready to remove books...\n";
         lib.Abolish();
       } else if ( c == '4' ){
-        printf("[EXE] Creating backup file...\n");
+        std::cout << "[EXE] Ready to add new book...\n";
+        lib.Create();
+      } else if ( c == '5' ){
         lib.Backup();
+        std::cout << "[EXE] Creating backup file...\n";
       } else {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        printf("[ERROR] Command not found\n");
+        std::cout << "[ERROR] Command not found\n";
       }
     }
 }

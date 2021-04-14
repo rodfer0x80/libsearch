@@ -9,6 +9,7 @@
 class Library {
 public:
     void Load(); // Load books.txt
+    void Create(); // Create new book object with terminal interface
     void Probe(); // search algo
     void Reckon(); // search algo + add books
     void Abolish(); // search algo + remove books

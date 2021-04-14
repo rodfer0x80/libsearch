@@ -50,7 +50,29 @@ void Library::Backup() {
         file_out.close();
     }
 }
+void Library::Create(){
+  Book tmpbook;
+  std::string name, author, isbn, number;
 
+  std::cout << "Enter book title >>> ";
+  std::cin.ignore(1);
+  std::getline(std::cin, name);
+  tmpbook.SetName(name);
+
+  std::cout << "Enter author >>> ";
+  std::getline(std::cin, author);
+  tmpbook.SetAuthor(author);
+
+  std::cout << "Enter ISBN >>> ";
+  std::getline(std::cin, isbn);
+  tmpbook.SetIsbn(isbn);
+
+  std::cout << "Enter quantity >>> ";
+  std::getline(std::cin, number);
+  tmpbook.SetNumber(number);
+
+  BookArray.PushBack(tmpbook);
+}
 // Search book by title
 // In an array
 // Input not case sensitive
@@ -154,6 +176,7 @@ void Library::Abolish() {
       BookArray[i].Abolish(amount);
       if (std::stoi(BookArray[i].GetNumber()) == 0){
         BookArray.PopBack(i);
+        std::cout << "[INFO] Book removed from library successfully" << std::endl;
       }
       std::cout << "[INFO] Operation successfull" << std::endl;
     }
