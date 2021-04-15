@@ -47,7 +47,10 @@ void Library::Backup() {
       std::cout << "[ERROR] Failed to create backup file " << filename << '\n';
     } else {
         for (i = 0; i < size; i++){
-          file_out << BookArray[i].GetName() << '\t' << BookArray[i].GetAuthor() << '\t' << BookArray[i].GetIsbn() << '\t' << BookArray[i].GetNumber() << '\t' << '\n';
+          file_out << BookArray[i].GetName() << '\t'
+            << BookArray[i].GetAuthor()
+            << '\t' << BookArray[i].GetIsbn() << '\t'
+            << BookArray[i].GetNumber() << '\t' << '\n';
         }
         std::cout << "[INFO] Backup was successfully saved" << std::endl;
         file_out.close();
@@ -93,8 +96,8 @@ void Library::Probe() {
   std::cin.ignore(1);
   std::getline(std::cin, title);
   // find title in book array and return object data
+  transform(title.begin(), title.end(), title.begin(), ::tolower);
   for (i = 0; i < size; i++){
-    transform(title.begin(), title.end(), title.begin(), ::tolower);
     bookname = BookArray[i].GetName();
     transform(bookname.begin(), bookname.end(), bookname.begin(), ::tolower);
     if (bookname == title){

@@ -1,7 +1,6 @@
 #include <fstream>
-#include "library.h"
-#include <cassert>
 #include <sstream>
+#include "library.h"
 #include <string>
 
 template<typename T>
