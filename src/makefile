@@ -10,6 +10,10 @@ main: main.cpp library.cpp menu.cpp
 test: tests.cpp library.cpp
 	$(CXX) tests.cpp library.cpp -o test
 
+.PHONY: run
+run: main
+	./main
+
 .PHONY: clean
 clean:
 	rm -f main
