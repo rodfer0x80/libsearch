@@ -1,0 +1,25 @@
+--:: Design and implementation of a library search system  ::--
+----
+-- Introduction
+:: This project focus on the design and implementation of a system allowing users to search for books by title, adding new books and removing lost/damaged books.
+----
+-- Technical terms:
+:: qty = quantity
+:: ISBN = international serial book number
+----
+-- Design
+:: Algorithm analysis for searching, adding and removing books.
+:: Non-standard data structure  to represent the data from the book objects.
+:: Store data WITH capitalisation
+:: Search
+:::: Algorithm input is a search query, return all book where the search query is the	 										same to book name
+:::: Add :: after selection book function qty++
+:::: Remove :: after selection book function qty--
+:::: Read open file and query for the book, once found return all text until the new line
+:: Data format
+:::: title	author;(s)	ISBN	qty	
+----
+-- Implementation:
+:: We will only be using C/C++ std libraries for this project as this should prove enough to handle the tasks required.
+:: File structure
+If we have the books sorted 
