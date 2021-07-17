@@ -8,14 +8,12 @@ public:
   void Start(); // Shell greeting and load book data from 'books' file
   // options for the menu
 private:
-  void op0();
-  void op1();
-  void op2();
-  void op3();
-  void op4();
-  void op5();
-  void op6();
-  void opx();
+  int op0();
+  int op1();
+  int op2();
+  int op3();
+  int op4();
+  int opx();
 };
 
 #endif

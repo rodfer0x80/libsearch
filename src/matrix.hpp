@@ -1,5 +1,8 @@
 #include <sstream>
 #include <fstream>
+
+std::string filename = "books";
+
 template<typename T>
 class Matrix
 {
@@ -8,7 +11,7 @@ class Matrix
     {
       size_t BOOK_QTY = 400; // change this for performance
       size_t initialCapacity = BOOK_QTY;
-      std::ifstream file("books");
+      std::ifstream file(filename);
       // initiate array with that size
       ReAlloc(initialCapacity);
     }

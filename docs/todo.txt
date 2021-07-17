@@ -1,0 +1,4 @@
+-- Todo -- 
+:: refactor libracy.cpp for domain only
+:: write tests for domain
+:: write documentation
